@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   attr_accessible :first_name, :last_name, :profile_name, :email, :password, :password_confirmation
+  
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :profile_name, presence: true
          
   has_many :statuses
   
