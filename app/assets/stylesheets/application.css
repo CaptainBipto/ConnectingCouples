@@ -1,0 +1,53 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require bootstrap.css
+ *= require scaffolds.css.scss
+ *= require statuses.css.scss
+ *= require welcome.css.scss
+ *= require_self
+ */
+
+.navbar-right {
+	padding-right: 15px;
+}
+
+.float-left {
+	float:left;
+	margin: 15px 10px 0 0; 
+}
+
+.float-right{
+	float: right;
+	margin: 15px 0 10px 0;
+}
+
+.bgWhite {
+	background: white;
+}
+
+
+body {
+	padding-top: 10px;
+	padding-bottom: 80px;
+	background: black;
+	background-color: black;
+}
+
+textarea {
+	width: 100%;
+	height: 10em;
+	display: block;
+	margin: auto;
+}
+
+.centered {
+	text-align: center;
+}

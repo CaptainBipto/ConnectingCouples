@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ConnectingCouples</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!-- Begin Navbar -->
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+	  <!-- Brand and toggle get grouped for better mobile display -->
+	  <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+	    
+	    <% if user_signed_in? %>
+	    	<%= link_to 'Connecting Couples', statuses_path, :class => "navbar-brand" %>
+	    <% else %>
+	    	<%= link_to 'Connecting Couples', welcome_index_path, :class => "navbar-brand" %>
+	    <% end %>
+	  </div>
+		
+	  <!-- Collect the nav links, forms, and other content for toggling -->
+	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	  <% if user_signed_in? %>  
+	    <ul class="nav navbar-nav">
+	      <li class="active"><%= link_to 'Statuses', statuses_path %></li>
+	    </ul>
+		  <ul class="nav navbar-nav navbar-right">
+		  	<li><%= link_to current_user.first_name, edit_user_registration_path %></li>
+		  	<li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+		  </ul>
+		  
+	  <% else %>
+	  	  <ul class="nav navbar-nav navbar-right">
+	  	  	<li><%= link_to 'Sign In', new_user_session_path %></li>
+	  	  </ul>
+	  <% end %>
+	  </div><!-- /.navbar-collapse -->
+</nav>
+<!-- End Navbar -->
+
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+	<div class="container">
+		<%= yield %>
+	</div>
+		
+
+<!-- Begin Footer -->
+
+	<nav class="navbar navbar-default navbar-fixed-bottom" role="footer">
+		<ul class="nav navbar-nav">	
+			<li>Footer</li>
+		</ul>
+	</nav>
+		
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
