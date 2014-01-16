@@ -9,11 +9,9 @@
 		<td>Question 5</td>
 	</tr>
 	<tr>
-		<td><%= @quiz.question1 %></td>
-		<td><%= @quiz.question2 %></td>
-		<td><%= @quiz.question3 %></td>
-		<td><%= @quiz.question4 %></td>
-		<td><%= @quiz.question5 %></td>
+		<% for attribute in ['question1', 'question2', 'question3', 'question4', 'question5'] %>
+	  		<td><%= @quiz.attributes[attribute].to_s%></td>
+	  	<% end %>
 	</tr>
 </table>
 

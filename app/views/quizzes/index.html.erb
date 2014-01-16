@@ -13,7 +13,8 @@
 	</tr>
 	<tbody>
 	  <% @quizzes.each do |quiz| %>
-	  		<td><%= quiz.user.profile_name %></td>
+	  	<tr>
+	  	<td><%= quiz.user.profile_name %></td>
 	  	<% for attribute in ['question1', 'question2', 'question3', 'question4', 'question5'] %>
 	  		<td><%= quiz.attributes[attribute].to_s%></td>
 	  	<% end %>
