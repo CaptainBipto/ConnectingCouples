@@ -1,0 +1,39 @@
+<%= form_for(@quiz) do |f| %>
+  <% if @quiz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+
+      <ul>
+      <% @quiz.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <% @quizQuestions = ["test question 1", "question 2", "question 3", "question 4", "question 5"] %>
+  <% @quizResults = [] %>
+  
+  <div class="panel centered">
+	  <% @quizQuestions.each_with_index do |q, index| %>
+	  <% @currentQuestionNum = index + 1 %>
+	  <% @currentQuestionString = "question" + @currentQuestionNum.to_s%>
+	  	<p><%= q %></p>
+	  <div class="btn-group" data-toggle="buttons">
+	  	
+	  	<label class="btn btn-primary">Yes <%= radio_button "quiz", @currentQuestionString, "yes" %></label>
+	  	<label class="btn btn-primary">If my partner wanted to <%= radio_button "quiz", @currentQuestionString, "maybe" %></label>
+	  	<label class="btn btn-primary">Did it before and liked it<%= radio_button "quiz", @currentQuestionString, "done_like" %></label>
+	  	<label class="btn btn-primary">Did it before and did not like<%= radio_button "quiz", @currentQuestionString, "done_dislike" %></label>
+	  	<label class="btn btn-primary">No<%= radio_button "quiz", @currentQuestionString, "no" %></label>
+	  </div>
+	<% end %>
+  </div>
+  
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 ConnectingCouples::Application.routes.draw do
+  resources :quizzes
+
   get "welcome/index"
   devise_for :users
   resources :statuses

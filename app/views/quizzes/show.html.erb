@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+	<tr>
+		<td>Question 1</td>
+		<td>Question 2</td>
+		<td>Question 3</td>
+		<td>Question 4</td>
+		<td>Question 5</td>
+	</tr>
+	<tr>
+		<td><%= @quiz.question1 %></td>
+		<td><%= @quiz.question2 %></td>
+		<td><%= @quiz.question3 %></td>
+		<td><%= @quiz.question4 %></td>
+		<td><%= @quiz.question5 %></td>
+	</tr>
+</table>
+
+<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+<%= link_to 'Back', quizzes_path %>
