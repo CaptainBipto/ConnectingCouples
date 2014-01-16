@@ -2,5 +2,22 @@
 
 <%= render 'form' %>
 
+
+<h1>Original Answers (from edit)</h1>
+<table>
+	<tr>
+		<td>Question 1</td>
+		<td>Question 2</td>
+		<td>Question 3</td>
+		<td>Question 4</td>
+		<td>Question 5</td>
+	</tr>
+	<tr>
+		<% for attribute in ['question1', 'question2', 'question3', 'question4', 'question5'] %>
+	  		<td><%= @quiz.attributes[attribute].to_s%></td>
+	  	<% end %>
+	</tr>
+</table>
+
 <%= link_to 'Show', @quiz %> |
 <%= link_to 'Back', quizzes_path %>

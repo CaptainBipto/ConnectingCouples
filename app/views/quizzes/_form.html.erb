@@ -12,22 +12,44 @@
   <% end %>
   
   <% @quizQuestions = ["test question 1", "question 2", "question 3", "question 4", "question 5"] %>
-  <% @quizResults = [] %>
   
   <div class="panel centered">
 	  <% @quizQuestions.each_with_index do |q, index| %>
-	  <% @currentQuestionNum = index + 1 %>
-	  <% @currentQuestionString = "question" + @currentQuestionNum.to_s%>
-	  	<p><%= q %></p>
-	  <div class="btn-group" data-toggle="buttons">
-	  	
-	  	<label class="btn btn-primary">Yes <%= radio_button "quiz", @currentQuestionString, "yes" %></label>
-	  	<label class="btn btn-primary">If my partner wanted to <%= radio_button "quiz", @currentQuestionString, "maybe" %></label>
-	  	<label class="btn btn-primary">Did it before and liked it<%= radio_button "quiz", @currentQuestionString, "done_like" %></label>
-	  	<label class="btn btn-primary">Did it before and did not like<%= radio_button "quiz", @currentQuestionString, "done_dislike" %></label>
-	  	<label class="btn btn-primary">No<%= radio_button "quiz", @currentQuestionString, "no" %></label>
-	  </div>
-	<% end %>
+		  <% @currentQuestionNum = index + 1 %>
+		  <% @currentQuestionString = "question" + @currentQuestionNum.to_s%>
+		  	<p><%= q %></p>
+			<div class="btn-group" data-toggle="buttons">
+				<% if @quiz.send(@currentQuestionString) == "yes" %>
+					<label class="btn btn-primary yes active">Yes <%= radio_button "quiz", @currentQuestionString, "yes" %></label>
+				<% else %>
+					<label class="btn btn-primary yes">Yes <%= radio_button "quiz", @currentQuestionString, "yes" %></label>
+				<% end %>
+				
+				<% if @quiz.send(@currentQuestionString) == "maybe" %>
+					<label class="btn btn-primary maybe active">If my partner wanted to <%= radio_button "quiz", @currentQuestionString, "maybe" %></label>
+				<% else %>
+			  		<label class="btn btn-primary maybe">If my partner wanted to <%= radio_button "quiz", @currentQuestionString, "maybe" %></label>
+			  	<% end %>
+			  	
+			  	<% if @quiz.send(@currentQuestionString) == "done_like" %>
+			  		<label class="btn btn-primary done_like active">Did it before and liked it<%= radio_button "quiz", @currentQuestionString, "done_like" %></label>
+			  	<% else %>
+			  		<label class="btn btn-primary done_like">Did it before and liked it<%= radio_button "quiz", @currentQuestionString, "done_like" %></label>
+			  	<% end %>
+			  	
+			  	<% if @quiz.send(@currentQuestionString) == "done_dislike" %>
+			  		<label class="btn btn-primary done_dislike active">Did it before and did not like<%= radio_button "quiz", @currentQuestionString, "done_dislike" %></label>
+			  	<% else %>
+			  		<label class="btn btn-primary done_dislike">Did it before and did not like<%= radio_button "quiz", @currentQuestionString, "done_dislike" %></label>
+			  	<% end %>
+			  	
+			  	<% if @quiz.send(@currentQuestionString) == "no" %>
+			  		<label class="btn btn-primary no active">No<%= radio_button "quiz", @currentQuestionString, "no" %></label>
+			  	<% else %>
+			  		*<label class="btn btn-primary no">No<%= radio_button "quiz", @currentQuestionString, "no" %></label>
+			  	<% end %>
+			</div>
+	  <% end %>
   </div>
   
 
@@ -37,3 +59,19 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<h1>Original Answers (from _form)</h1>
+<table>
+	<tr>
+		<td>Question 1</td>
+		<td>Question 2</td>
+		<td>Question 3</td>
+		<td>Question 4</td>
+		<td>Question 5</td>
+	</tr>
+	<tr>
+		<% for attribute in ['question1', 'question2', 'question3', 'question4', 'question5'] %>
+	  		<td><%= @quiz.attributes[attribute].to_s%></td>
+	  	<% end %>
+	</tr>
+</table>
