@@ -1,15 +1,39 @@
-<h1>Listing quizzes</h1>
+<h1>Quiz Results!</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+	<tr>
+	  <thead>
+		<td>User</td>
+		<td>Question 1</td>
+		<td>Question 2</td>
+		<td>Question 3</td>
+		<td>Question 4</td>
+		<td>Question 5</td>
+	  </thead> 
+	</tr>
+	<tbody>
+	  <% @quizzes.each do |quiz| %>
+	  		<td><%= quiz.user.profile_name %></td>
+	  	<% for attribute in ['question1', 'question2', 'question3', 'question4', 'question5'] %>
+	  		<td><%= quiz.attributes[attribute].to_s%></td>
+	  	<% end %>
+	  	<td><%= link_to 'Show', quiz %></td>
+		<td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
+		<td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	  <% end %>
+	</tbody>
+</table>
 
-  <tbody>
+<%= link_to 'New Quiz', new_quiz_path %>
+
+
+
+
+
+
+
+  <!-- <tbody>
     <% @quizzes.each do |quiz| %>
       <tr>
         <td><%= link_to 'Show', quiz %></td>
@@ -22,4 +46,4 @@
 
 <br>
 
-<%= link_to 'New Quiz', new_quiz_path %>
+<%= link_to 'New Quiz', new_quiz_path %>  -->
