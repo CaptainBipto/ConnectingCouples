@@ -1,3 +1,56 @@
+<div class="container">
+  <div class="row">	
+	<div class="col-xs-12 centered panel">
+		<div class="col-xs-12 centered">
+			<h1>The Connecting Couples Quiz</h1>
+			
+			<p>This is just filler text for now. This will be the quiz home screen that introduces the quiz.</p>
+			
+			<p>Welcome to the Connecting Couples Quiz. This quiz is designed to identify your sexual fantasies and preferences. Once you and 
+				your partner have both completed the quiz we will be able to compare your results and offer you customized ideas on how to 
+				spice up your love life.</p>
+				
+			<p>The way it works is that we go through both quizzes and only look for compatible answers. Once we identify compatible activities
+				and fantasies we will use those to build a profile for you as a couple. Using the information in your couple's profile we can
+				offer activites, fantasies, and other ideas that you and your partner will both enjoy!</p>
+				
+			<p>For the best results answer each question as honestly as you can! Don't be shy or embarassed. No one will ever see your raw results,
+				and only compatible answers with your partner will contribute to your profile!</p>
+		</div>
+	</div>
+  </div>
+  <div class="row">
+	<div class="col-xs-3 panel">
+		<h1>Not sure what's going here</h1>
+	</div>
+	<div class="col-xs-1 spacer"></div>
+	<div class="col-xs-4 panel centered">
+		<h1>Status Panel</h1>
+		
+		<% if current_user.quiz %>
+			<p>current user has quiz</p>
+		<% else %>
+			<p>current user has no quiz</p>
+		<% end %>
+		
+	</div>
+	<div class="col-xs-1 spacer"></div>
+	<div class="col-xs-3 panel">
+		<h1>Not sure what's going here</h1>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 <h1>Quiz Results!</h1>
 
 <table>
