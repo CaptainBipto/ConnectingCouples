@@ -28,9 +28,11 @@
 		<h1>Status Panel</h1>
 		
 		<% if current_user.quiz %>
-			<p>current user has quiz</p>
+			<p>You have already completed our quiz!</p>
+			<%= link_to 'Edit your quiz', edit_quiz_path(current_user.quiz)%>
 		<% else %>
-			<p>current user has no quiz</p>
+			<p>You have not taken the quiz yet!</p>
+			<%= link_to 'Take the quiz now!', new_quiz_path %>
 		<% end %>
 		
 	</div>
