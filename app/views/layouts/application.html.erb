@@ -49,16 +49,15 @@
 </nav>
 <!-- End Navbar -->
 
-	
-	<% if flash[:notice] %>
-	  <div class="container">
-		<div class="alert alert-info alert-dismissable">
-			<%= flash[:notice] %>
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		</div>
-	  </div>
+	<% flash.each do |type, message|%>
+		<div class="container">
+			<div class="alert <%= flash_class type %> alert-dismissable">
+				<%= message %>
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			</div>
+	  	</div>
 	<% end %>
-	
+
 	
 	<div class="container">
 		<%= yield %>
