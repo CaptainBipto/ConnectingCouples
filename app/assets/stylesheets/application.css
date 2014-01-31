@@ -51,3 +51,8 @@ textarea {
 .centered {
 	text-align: center;
 }
+
+.nav li a {
+	padding-left: .3em;
+	padding-right: .3em;
+}

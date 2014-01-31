@@ -16,6 +16,11 @@ ConnectingCouples::Application.routes.draw do
     unauthenticated :user do
       root :to => 'welcome#index', as: :unauthenticated_root
     end
+    
+    #custom URLs
+    get 'register', :to => 'devise/registrations#new', as: :register
+    get 'sign_in', :to => 'devise/sessions#new', as: :sign_in
+    get 'sign_out', :to => 'devise/sessions#destroy', as: :sign_out
   end
 
   # Example of regular route:
