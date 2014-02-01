@@ -21,5 +21,6 @@
 
 
 <br>
-
-<%= link_to 'New Status', new_status_path %>
+<% if user_signed_in? %>
+	<%= link_to 'New Status', new_status_path %>
+<% end %>
