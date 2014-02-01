@@ -1,3 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-
+one:
+  content: MyText
+  user: norm
+  
+two: 
+  content: MyText
+  user: norm
