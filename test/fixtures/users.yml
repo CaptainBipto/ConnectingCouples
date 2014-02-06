@@ -4,3 +4,10 @@ norm:
   email: "exampleEmail@boobs.com"
   profile_name: "Norm"
   
+  
+becca:
+  first_name: "Becca"
+  last_name: "Weitzel"
+  email: "exampleEmail2@boobies.com"
+  profile_name: "Becca"
+  
