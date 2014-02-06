@@ -1,4 +1,5 @@
 ConnectingCouples::Application.routes.draw do
+  get "profiles/show"
   resources :quizzes
 
   get "welcome/index"
