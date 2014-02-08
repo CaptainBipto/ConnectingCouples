@@ -18,4 +18,9 @@ test "that /register opens the register page" do
   assert_response :success
 end
 
+test "that /ProfileName opens the user's profile page" do
+  get '/Norm'
+  assert_response :success
+end
+
 end

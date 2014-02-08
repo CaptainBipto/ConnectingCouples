@@ -6,6 +6,7 @@ ConnectingCouples::Application.routes.draw do
   devise_for :users
   resources :statuses
 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -22,6 +23,8 @@ ConnectingCouples::Application.routes.draw do
     get 'register', :to => 'devise/registrations#new', as: :register
     get 'sign_in', :to => 'devise/sessions#new', as: :sign_in
     get 'sign_out', :to => 'devise/sessions#destroy', as: :sign_out
+    get 'feed', :to => 'statuses#index', as: :feed
+    get '/:id', :to => 'profiles#show'
   end
 
   # Example of regular route:
